@@ -1,0 +1,5 @@
+& "C:\Users\skmoh\AppData\Local\Programs\Python\Python314\python.exe" -m pip install transformers
+
+python -m pip install numpy pandas torch
+
+& "C:\Users\skmoh\AppData\Local\Programs\Python\Python314\python.exe" -m pip install numpy pandas torch transformers
