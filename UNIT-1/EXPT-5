@@ -1,0 +1,35 @@
+
+from transformers import pipeline
+
+generator = pipeline(
+    "text-generation",
+    model="distilgpt2"
+)
+
+prompt = "Artificial Intelligence helps students by"
+
+results = generator(
+    prompt,
+    max_new_tokens=50,
+    num_return_sequences=1,
+    do_sample=True,
+    temperature=0.7,
+    pad_token_id=50256
+)
+
+generated_text = results[0]["generated_text"]
+
+print("Original Prompt:")
+print(prompt)
+
+print("\nGenerated Response:")
+print(generated_text)
+
+print("\nResponse Analysis:")
+print("Prompt Length:", len(prompt.split()), "words")
+print("Generated Response Length:", len(generated_text.split()), "words")
+
+if len(generated_text.split()) > len(prompt.split()):
+    print("Analysis: The model generated additional text.")
+else:
+    print("Analysis: The model generated little or no additional text.")
